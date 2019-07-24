@@ -1,0 +1,2 @@
+model_checkpoint_path: "/opt/lampp/htdocs/NLP/Alegrabot-zip/alegralabs-bot-backend/models/default/model_20190524-162823/component_7_EmbeddingIntentClassifier.ckpt"
+all_model_checkpoint_paths: "/opt/lampp/htdocs/NLP/Alegrabot-zip/alegralabs-bot-backend/models/default/model_20190524-162823/component_7_EmbeddingIntentClassifier.ckpt"

@@ -1,0 +1,28 @@
+.chat_window{
+	margin-left: 50%;
+	height: calc(100vh - 120px);
+}
+.chat_window_heading{
+	margin-left: 50%;
+}
+.messages{
+	height: calc(100vh - 250px);
+}
+
+.messages .message.left .text {
+    color: black !important;
+    font-weight: inherit;
+}
+
+#msg_input{
+    color: black;
+}
+
+/* Added on 05-09-2018 */
+.contact-info-box {
+    margin-top: 20px;
+}
+.avatar img {
+    max-width: 100%;
+    max-height: 100%;
+}

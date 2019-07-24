@@ -1,0 +1,83 @@
+.chatBotMain {
+    position: fixed;
+    height: 475px;
+    width: 315px;
+    bottom: 10px;
+    right: 30px;
+}
+.messages {
+    height: 330px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.min_window {
+    position: absolute;
+    height: 50px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* background-color: #f8f8f8; */
+    overflow: hidden;
+    left: 0;
+    margin-left: 0;
+    top: 0;
+    width: 315px;
+    padding: 10px;
+    background-color: #A0D363;
+    color: #FFF;
+}
+.min_window .botName {
+    width: 260px;
+    font-size: 1.3em;
+    float: left;
+    font-weight: bold;
+}
+.min_window .botClose {
+    width: 35px;
+    font-size: 1.5em;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+.min_window .botOpen {
+    width: 35px;
+    font-size: 1.9em;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+.chat_window {
+    position: absolute;
+    height: 425px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+    overflow: hidden;
+    left: 0;
+    margin-left: 0;
+    top: 50px;
+    width: 315px;
+}
+.messages .message .text_wrapper .text {
+    font-size: 0.96em;
+}
+.bottom_wrapper .message_input_wrapper {
+    width: 190px !important;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+#msg_input {
+    width: 170px;
+    font-size: 0.9em;
+}
+.bottom_wrapper .send_message {
+    width: 75px;
+    border-radius: 15px;
+}
+.bottom_wrapper .send_message .text {
+    font-size: 0.99em;
+    font-weight: bolder;
+    display: inline-block;
+    line-height: 48px;
+}
