@@ -213,7 +213,7 @@ def mailChat(user_email, data):
 @app.route('/chat',methods=["POST"])
 def chat():
     try:
-        response = requests.get("http://alegralabs.com:5000/parse", params={"q":request.form["text"]})
+        response = requests.get("http://alegralabs.com:5000/parse", params={"q":request.form["text"]}, timeout=60)
         # response = requests.get("http://127.0.0.1:5000/parse", params={"q":request.form["text"]})
         response = response.json()
         if response["intent"]["confidence"] >= 0.6: #earlier 0.89
