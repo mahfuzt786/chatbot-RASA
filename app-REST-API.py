@@ -136,7 +136,7 @@ class chat(Resource):
         try:
             # response = requests.get("http://alegralabs.com:5000/parse", params={"q":request.form["text"]})
             #response = requests.get("http://127.0.0.1:5000/parse", params={"q":request.form["text"]})
-            response = requests.get("http://alegralabs.com:5000/parse", params={"q":args["text"]})
+            response = requests.get("http://alegralabs.com:5000/parse", params={"q":args["text"]}, timeout=60)
             #response = requests.get("http://127.0.0.1:5000/parse", params={"q":args["text"]})
             response = response.json()
             print(response)
