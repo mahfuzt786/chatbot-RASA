@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 import requests
 from application_config import *
 from response import *
-import random
 #from flask import Blueprint
 from flask_restful import Api, reqparse, Resource
 from flask_cors import CORS, cross_origin
@@ -12,6 +11,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import MySQLdb  #server PhpmyAdmin
+import secrets
 
 
 # api_bp = Blueprint('api', __name__)
@@ -35,7 +35,7 @@ parser = reqparse.RequestParser()
 parser.add_argument('usr_email', required=True, help="User Email is missing!")
 parser.add_argument('usr_phone_number', required=True, help="User Phone Number is missing!")
 
-get_random_response = lambda intent:random.choice(response[intent])
+get_random_response = lambda intent:secrets.SystemRandom().choice(response[intent])
 
 def get_response(intent, params=None, user_email=None, phone_number=None):    
     if user_email == None or user_email == "":

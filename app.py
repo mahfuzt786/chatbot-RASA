@@ -3,7 +3,6 @@ from flask import render_template,jsonify,request
 import requests
 from application_config import *
 from response import *
-import random
 from flask_mysqldb import MySQL
 import smtplib
 
@@ -12,6 +11,7 @@ from email.mime.text import MIMEText
 import MySQLdb
 import subprocess
 import sys
+import secrets
  
 app = Flask(__name__)
 
@@ -121,7 +121,7 @@ def reStartService():
     
     return jsonify({"status":"success","response":'restart'})
 
-get_random_response = lambda intent:random.choice(response[intent])
+get_random_response = lambda intent:secrets.SystemRandom().choice(response[intent])
 
 def get_response(intent, params=None, user_email=None, phone_number=None):
     if user_email == None or user_email == "":
