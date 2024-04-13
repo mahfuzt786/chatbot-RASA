@@ -164,7 +164,7 @@ class chat(Resource):
             cur.execute("SELECT email, phone_number FROM alegra6_hdms.chatbots WHERE email LIKE %s AND phone_number LIKE %s", (user_email, phone_number))
             data = cur.fetchall()
             
-            if len(data) is 0 :
+            if len(data) == 0 :
                 cur.execute("INSERT INTO alegra6_hdms.chatbots(email, chats, phone_number) VALUES (%s, %s, %s)", (user_email, dbInsert, phone_number))
             else :
                 cur.execute("UPDATE alegra6_hdms.chatbots SET chats = CONCAT(chats, %s) WHERE email LIKE %s AND phone_number LIKE %s", (dbInsert, user_email, phone_number))
@@ -190,7 +190,7 @@ class mail(Resource):
             data = cur.fetchall()
             #data = cur.fetchone()
     
-            if len(data) is 0 :
+            if len(data) == 0 :
                 response_text = 'There is no data to mail'
             else :
                 response_text = 'Mailed Successfully'
