@@ -2,12 +2,12 @@ from flask import Flask, jsonify, request
 import requests
 from application_config import *
 from response import *
-import random
 #from flask import Blueprint
 from flask_restful import Api, reqparse, Resource
 from flask_cors import CORS, cross_origin
 from flask_sslify import SSLify
 import ssl
+import secrets
 
 
 # api_bp = Blueprint('api', __name__)
@@ -32,7 +32,7 @@ context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 # context.load_cert_chain('ssl/apache-selfsigned.crt', 'ssl/apache-selfsigned.key')
 #context.load_cert_chain('/etc/pki/tls/certs/server.alegralabs.com.crt', '/etc/ssl/private/server.alegralabs.com.key')
 
-get_random_response = lambda intent:random.choice(response[intent])
+get_random_response = lambda intent:secrets.choice(response[intent])
 
 def get_response(intent, params=None, user_email=None, phone_number=None):    
     if user_email == None or user_email == "":

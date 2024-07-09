@@ -3,13 +3,13 @@ from flask import render_template,jsonify,request
 import requests
 from application_config import *
 from response import *
-import random
 from flask_mysqldb import MySQL
 import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import MySQLdb
+import secrets
  
 app = Flask(__name__)
 
@@ -32,7 +32,7 @@ mysql = MySQLdb.connect(host="localhost",  # your host
 def home_page():
     return render_template('home.html')
 
-get_random_response = lambda intent:random.choice(response[intent])
+get_random_response = lambda intent:secrets.choice(response[intent])
 
 def get_response(intent, params=None, user_email=None, phone_number=None):
     if user_email == None or user_email == "":
