@@ -12,6 +12,7 @@ from email.mime.text import MIMEText
 import MySQLdb
 import subprocess
 import sys
+from security import safe_command
  
 app = Flask(__name__)
 
@@ -38,7 +39,7 @@ class ServiceMonitor(object):
     def is_active(self):
         """Return True if service is running"""
         cmd = '/bin/systemctl status %s.service' % self.service
-        proc = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, cmd, shell=True,stdout=subprocess.PIPE)
         #print(str(proc.communicate()[0].decode("utf-8")).split('\n'))
         # stdout_list = proc.communicate()[0].split('\n')
         stdout_list = str(proc.communicate()[0].decode("utf-8")).split('\n')
@@ -50,21 +51,21 @@ class ServiceMonitor(object):
 
     def start(self):
         cmd = '/bin/systemctl start %s.service' % self.service
-        proc = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, cmd, shell=True,stdout=subprocess.PIPE)
         proc.communicate()
 
         return True
 
     def stop(self):
         cmd = '/bin/systemctl stop %s.service' % self.service
-        proc = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, cmd, shell=True,stdout=subprocess.PIPE)
         proc.communicate()
 
         return True
 
     def restart(self):
         cmd = '/bin/systemctl restart %s.service' % self.service
-        proc = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, cmd, shell=True,stdout=subprocess.PIPE)
         proc.communicate()
 
         return True
